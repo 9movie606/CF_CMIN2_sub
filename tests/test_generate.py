@@ -83,7 +83,7 @@ class BuildTests(unittest.TestCase):
 
             all_lines = (output / "all.txt").read_text(encoding="utf-8").splitlines()
             self.assertEqual(len(all_lines), 3)
-            self.assertTrue(any("3.3.3.3:8443#湖北,江苏/南京" == line for line in all_lines))
+            self.assertTrue(any("3.3.3.3:8443#湖北_江苏/南京" == line for line in all_lines))
             self.assertEqual(index["total"], 3)
             self.assertEqual(index["province_total"], 2)
             self.assertEqual(index["city_total"], 2)

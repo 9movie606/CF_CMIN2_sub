@@ -22,6 +22,9 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data" / "ip_list.txt"
 DEFAULT_OUTPUT = ROOT / "dist"
 
+# Use an ASCII underscore in all.txt remarks; some clients split commas.
+ALL_REMARK_REGION_SEPARATOR = "_"
+
 # Canonical simplified-Chinese province-level names accepted by the data file.
 PROVINCE_SLUGS = {
     "北京": "beijing", "天津": "tianjin", "上海": "shanghai", "重庆": "chongqing",
@@ -202,7 +205,7 @@ def build(input_path: Path = DEFAULT_INPUT, output_dir: Path = DEFAULT_OUTPUT) -
         regions = record["regions"]
         labels = [province if city is None else f"{province}/{city}"
                   for province, city in regions]
-        all_output.append(f"{endpoint}#{','.join(labels)}")
+        all_output.append(f"{endpoint}#{ALL_REMARK_REGION_SEPARATOR.join(labels)}")
         all_json.append({"endpoint": endpoint, "regions": labels})
         for province, city in regions:
             if city is None:
