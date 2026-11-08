@@ -1,0 +1,32 @@
+* { box-sizing: border-box; }
+:root { color-scheme: light dark; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+body { margin: 0; background: Canvas; color: CanvasText; line-height: 1.55; }
+.wrap { width: min(760px, calc(100% - 28px)); margin: 34px auto 56px; }
+header { margin-bottom: 20px; }
+h1 { font-size: clamp(25px, 5vw, 34px); margin: 0 0 4px; }
+h2 { font-size: 18px; margin: 0 0 8px; }
+.sub, .hint, footer { color: color-mix(in srgb, CanvasText 62%, transparent); }
+.sub { margin: 0; }
+.summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 15px; border: 1px solid color-mix(in srgb, CanvasText 18%, transparent); border-radius: 12px; margin-bottom: 14px; }
+.summary .num { display: block; font-size: 25px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.summary .hint { font-size: 12px; }
+.updated { grid-column: 1 / -1; font-size: 12px; color: color-mix(in srgb, CanvasText 58%, transparent); }
+.panel { border: 1px solid color-mix(in srgb, CanvasText 18%, transparent); border-radius: 12px; padding: 16px; margin: 12px 0; }
+label { display: block; font-weight: 650; margin-bottom: 8px; }
+select { width: 100%; min-height: 44px; padding: 8px 10px; border-radius: 8px; border: 1px solid color-mix(in srgb, CanvasText 28%, transparent); background: Canvas; color: CanvasText; font: inherit; }
+.result { margin-top: 14px; padding-top: 13px; border-top: 1px solid color-mix(in srgb, CanvasText 15%, transparent); }
+.result strong { display: block; margin-bottom: 3px; }
+.result .hint { margin: 0 0 10px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+a { color: LinkText; }
+.link-button, button { display: inline-flex; align-items: center; justify-content: center; min-height: 39px; padding: 8px 12px; border-radius: 8px; border: 1px solid color-mix(in srgb, CanvasText 25%, transparent); font: inherit; text-decoration: none; cursor: pointer; }
+.link-button { background: CanvasText; color: Canvas; border-color: CanvasText; }
+button.secondary { background: transparent; color: CanvasText; }
+footer { margin-top: 22px; font-size: 12px; }
+.hidden { display: none; }
+@media (max-width: 520px) {
+  .summary { gap: 8px; padding: 12px; }
+  .summary .num { font-size: 21px; }
+  .summary .hint { font-size: 11px; }
+  .panel { padding: 13px; }
+}

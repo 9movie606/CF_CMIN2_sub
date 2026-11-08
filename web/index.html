@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="按城市或省份查询优选 IP 清单与订阅网址。">
+  <title>优选 IP 地区查询</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>优选 IP 地区查询</h1>
+      <p class="sub">先找城市专用清单；没有城市数据时，再选择省级清单。</p>
+    </header>
+
+    <section class="summary" aria-live="polite">
+      <div><span class="num" id="total-count">--</span><span class="hint">个唯一节点</span></div>
+      <div><span class="num" id="province-count">--</span><span class="hint">个有省级数据的省份</span></div>
+      <div><span class="num" id="city-count">--</span><span class="hint">个有城市专用数据的城市</span></div>
+      <div class="updated" id="updated">数据更新日期：读取中</div>
+    </section>
+
+    <section class="panel">
+      <label for="region-choice">选择你的城市或省份</label>
+      <select id="region-choice">
+        <option value="">正在加载地区数据…</option>
+      </select>
+      <p class="hint">城市选项提供“省级 IP + 城市专用 IP”完整清单；省级选项只提供该省通用 IP。</p>
+      <div id="selection-result" class="result hidden"></div>
+    </section>
+
+    <section class="panel">
+      <h2>全部节点</h2>
+      <p class="hint">包含所有已确认地区的唯一 IP:端口，每个 IP:端口只列出一次，备注列出全部适用范围。</p>
+      <div class="actions">
+        <a class="link-button" href="./all.txt" target="_blank" rel="noopener">查看 / 下载全部 TXT</a>
+        <button class="secondary" id="copy-all" type="button">复制全部订阅网址</button>
+      </div>
+    </section>
+
+    <footer>
+      <p>清单由数据维护者提供。实际连接效果可能因网络、运营商及时间而异。</p>
+      <p><a href="./index.json">数据索引</a> · <a href="./all.json">JSON 数据</a></p>
+    </footer>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>
